@@ -19,10 +19,11 @@ RUN apk --update add --virtual build-dependencies python build-base && \
 	apk --update add git && \
 	apk del build-dependencies
 
-RUN echo building $N8N_CORE_BRANCH
-
-RUN git clone https://github.com/n8n-io/n8n && \
+RUN N8N_CORE_BRANCH=feature/PROD-785-tags-modal && \
+    git clone https://github.com/n8n-io/n8n && \
 	cd n8n && \
+    echo $N8N_CORE_BRANCH && \
+    git fetch origin $N8N_CORE_BRANCH && \
     git checkout $N8N_CORE_BRANCH && \
 	npm install -g typescript && \
 	npm install -g lerna && \
