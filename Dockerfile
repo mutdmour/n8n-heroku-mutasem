@@ -21,7 +21,9 @@ RUN apk --update add --virtual build-dependencies python build-base && \
 
 RUN git clone https://github.com/n8n-io/n8n && \
 	cd n8n && \
+	npm install -g typescript && \
 	npm install -g lerna && \
+	lerna bootstrap --hoist && \
 	npm_config_user=root npm run build && \
 	alias n8n="./packages/cli/bin/n8n"
 
