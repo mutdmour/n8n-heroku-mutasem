@@ -19,10 +19,9 @@ RUN apk --update add --virtual build-dependencies python build-base && \
 	apk --update add git && \
 	apk del build-dependencies
 
-RUN git clone https://github.com/n8n-io/n8n \
-	cd n8n \
-	npm_config_user=root npm run build \
-	ln -s ./packages/cli/bin/n8n \
+RUN git clone https://github.com/n8n-io/n8n && \
+	cd n8n && \
+	npm_config_user=root npm run build && \
 	alias n8n="./packages/cli/bin/n8n"
 
 # Specifying work directory
