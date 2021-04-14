@@ -60,5 +60,7 @@ else
 	echo "invalid url arg"
 fi
 
+
 # kickstart nodemation
-n8n
+../n8n/packages/cli/bin/n8n
+

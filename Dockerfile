@@ -15,17 +15,21 @@ USER root
 # 	npm_config_user=root npm install -g n8n@${N8N_VERSION} && \
 # 	apk del build-dependencies
 
-RUN apk --update add --virtual build-dependencies python build-base && \
-	apk --update add git && \
-	apk del build-dependencies
+# RUN apk --update add --virtual build-dependencies python build-base && \
+# 	apk --update add git && \
+# 	apk del build-dependencies
 
-RUN git clone https://github.com/n8n-io/n8n && \
-	cd n8n && \
-	npm install -g typescript && \
-	npm install -g lerna && \
-	lerna bootstrap --hoist && \
-	npm_config_user=root npm run build && \
-	alias n8n="./packages/cli/bin/n8n"
+# RUN git clone https://github.com/n8n-io/n8n && \
+# 	cd n8n && \
+# 	npm install -g typescript && \
+# 	npm install -g lerna && \
+# 	lerna bootstrap --hoist && \
+# 	npm_config_user=root npm run build 
+
+# RUN alias n8n="echo yo running n8n bro"
+RUN mkdir -p n8n/packages/cli/bin && \
+	echo -e '#!/bin/sh\necho "hello this is n8n"' > /n8n/packages/cli/bin/n8n && \
+    chmod +x /n8n/packages/cli/bin/n8n
 
 # Specifying work directory
 WORKDIR /data
@@ -38,3 +42,4 @@ RUN chmod +x /start.sh
 
 # define execution entrypoint
 CMD ["/start.sh"]
+
