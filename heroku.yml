@@ -11,3 +11,5 @@ setup:
 build:
     docker:
         web: Dockerfile
+    config:
+        N8N_CORE_BRANCH: master

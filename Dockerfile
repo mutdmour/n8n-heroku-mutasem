@@ -20,6 +20,7 @@ RUN apk --update add --virtual build-dependencies python build-base && \
 	apk del build-dependencies
 
 RUN git clone https://github.com/n8n-io/n8n && \
+    git checkout $N8N_CORE_BRANCH && \
 	cd n8n && \
 	npm install -g typescript && \
 	npm install -g lerna && \
