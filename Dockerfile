@@ -27,6 +27,7 @@ RUN N8N_CORE_BRANCH=n8n-2283-implement-design-system && \
     git checkout $N8N_CORE_BRANCH && \
 	npm install -g typescript && \
 	npm install -g lerna && \
+	npm install && \
 	lerna bootstrap --hoist && \
 	npm_config_user=root npm run build 
 
