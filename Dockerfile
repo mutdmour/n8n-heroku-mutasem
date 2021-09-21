@@ -42,4 +42,3 @@ RUN chmod +x /start.sh
 
 # define execution entrypoint
 CMD ["/start.sh"]
-
