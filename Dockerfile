@@ -19,7 +19,7 @@ RUN apk --update add --virtual build-dependencies python build-base && \
 	apk --update add git && \
 	apk del build-dependencies
 
-RUN N8N_CORE_BRANCH=n8n-2385-auth-views && \
+RUN N8N_CORE_BRANCH=master && \
     git clone https://github.com/n8n-io/n8n && \
 	cd n8n && \
     echo $N8N_CORE_BRANCH && \
