@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:14.16-alpine
 
 # pass N8N_VERSION Argument while building or use default
 ARG N8N_VERSION=0.98.0
@@ -15,7 +15,9 @@ USER root
 # 	npm_config_user=root npm install -g n8n@${N8N_VERSION} && \
 # 	apk del build-dependencies
 
-RUN apk --update add --virtual build-dependencies python2 python3 build-base && \
+RUN node --version
+
+RUN apk --update add --virtual build-dependencies python build-base && \
 	apk --update add git && \
 	apk del build-dependencies
 
