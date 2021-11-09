@@ -21,7 +21,7 @@ RUN apk --update add --virtual build-dependencies python2 python3 build-base && 
 	apk --update add git && \
 	apk del build-dependencies
 
-RUN N8N_CORE_BRANCH=n8n-connector && \
+RUN N8N_CORE_BRANCH=n8n-2349-connectors && \
     git clone https://github.com/n8n-io/n8n && \
 	cd n8n && \
     echo $N8N_CORE_BRANCH && \
