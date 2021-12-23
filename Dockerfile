@@ -21,7 +21,7 @@ RUN apk --update add --virtual build-dependencies python2 python3 build-base && 
 	apk --update add git && \
 	apk del build-dependencies
 
-RUN N8N_CORE_BRANCH=minor-i18n-fixes && \
+RUN N8N_CORE_BRANCH=feat/activator-only-for-triggers && \
     git clone https://github.com/n8n-io/n8n && \
 	cd n8n && \
     echo $N8N_CORE_BRANCH && \
